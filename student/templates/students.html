@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+ <!--  include "base.html"  -->  
+
+ 	<br/>
+   <h2>Student Info</h2>
+   <form action="{% url 'student-update' detail.pk %}">
+		<input type="submit" Value="Update Student">
+	</form>
+	<form action="{% url 'student-delete' detail.pk %}">
+		<input type="submit" Value="Delete Student">
+	</form>
+
+	<p>First Name: {{ detail.first_name}}</p>
+	<p>Last Name:{{ detail.last_name}} </p>
+	<p>Middle Name: {{ detail.middle_name}}</p>
+	<p>Age: {{ detail.age}} </p>
+	
+	{% for course in detail.course.all %}
+	<p>Course: {{ course }} </p>
+	
+	
+	{% endfor %}
+		
+	
+{% endblock %}	
+	
+	
+
